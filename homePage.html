@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+      
+       <title>Fan's website</title>
+      
+       <link rel="stylesheet" href="https://cdn.webix.com/edge/webix.css" type="text/css" charset="utf-8"> 
+       <script src="https://cdn.webix.com/edge/webix.js" type="text/javascript" charset="utf-8"/> </script>
+       
+    </head>
+    
+    <style>
+      p {text-align: center;}
+      h1
+      {
+        text-align: center;
+        font-size: 72 px;
+      }
+      
+    </style>
+    
+ 	<body>
+      
+      
+      <script type="text/javascript" charset="utf-8">
+          
+        window.onresize = adjustDimension;
+        var w = window.innerWidth;
+      	var h = window.innerHeight;
+
+        function adjustDimension() 
+        {
+        w = window.innerWidth;
+        h = window.innerHeight;
+        $$("btn_homePage").config.width = w/3;
+        $$("btn_homePage").resize();
+        
+        $$("btn_github").config.width = w/3;
+        $$("btn_github").resize();
+
+        $$("btn_portfolio").config.width = w/3;
+        $$("btn_portfolio").resize();
+        
+        $$("space").config.width = w/3/2;
+        $$("space").resize();
+        
+        $$("btn_resume").config.width = w/3;
+        $$("btn_resume").config.height = h/6
+        $$("btn_resume").resize();
+
+        $$("btn_linkedIn").config.width = w/3;
+        $$("btn_linkedIn").config.height = h/6
+        $$("btn_linkedIn").resize();
+      }
+    
+
+         webix.ui({
+           rows:
+           [
+             { 
+               
+               view:"toolbar",
+               id:"top_toolbar",      
+               elements:[
+                 { 
+                   view:"button", id:"btn_homePage", width:w/3, value:"Home", click:Home
+                 },
+ 
+                 {
+                   view:"button", id:"btn_github", width:w/3, value:"Fan's Github", click:toGithub
+                 },
+                 
+                 {
+                  view:"button", id:"btn_portfolio", width:w/3, value:"Portfolio", click:toPortfolio
+                 } 
+               ]
+             },
+             { cols:[
+               
+                  { 
+                    id:"t1", autoWidth: true, autoHeight: true,  borderless:true, template:'<h1><p><img src="coffee.PNG"</p></h1>' +"<h1><p>My name is Yulong Fan <br/> Welcome to my website</p></h1>"
+                  },
+     
+             ]},
+             {
+              cols:
+               [
+                 {
+                    id:"space",
+                    width:w/3/2,
+                 },
+                  {
+                    view:"button", id:"btn_resume", type: "icon", icon:"wxi-user", css:"webix_transparent", label: "See Resume", width:w/3, height: h/6, value:"See Resume", click: toResume,
+                  },
+                  {
+                    view:"button", id:"btn_linkedIn", type: "image", image: "linkedIn.PNG", css:"webix_transparent", label: "To linkedIn", width:w/3, height: h/6, value:"To LinkedIn", click: toLinkedIn,
+                  }
+
+               ]
+             }
+           ]
+         });
+
+         function Home()
+         {
+            window.open("homePage.html", "_self") 
+         };
+
+
+         function toGithub()
+         {
+            window.open("https://github.com/yfan117")
+         };
+         
+          function toPortfolio()
+         {
+            window.open("portfolio.html", "_self")
+         };
+
+         function toResume()
+         {
+            window.open("resume.html")
+         };
+
+         function toLinkedIn()
+         {
+            window.open("https://www.linkedin.com/in/yulong-fan-027b6479/")
+         };
+
+      </script>
+    </body>
+</html>
